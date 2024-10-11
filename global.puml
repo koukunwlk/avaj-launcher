@@ -37,7 +37,7 @@ class Aircraft
 {
 #long id
 #string name
-#Coordinate coordinates
+#Coordinates coordinates
 #Aircraft(long p_id, string p_name, Coordinates p_coordinate)
 }
 
