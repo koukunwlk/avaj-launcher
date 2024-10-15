@@ -10,7 +10,22 @@ public class Aircraft extends Flyable{
     }
 
     @Override
-    void updateConditions() {}
+    void updateConditions() {
+        
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
 
     @Override
     public String toString() {

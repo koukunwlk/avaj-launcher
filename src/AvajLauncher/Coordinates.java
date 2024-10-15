@@ -36,6 +36,11 @@ public class Coordinates {
         }
 
         public void setHeight(int p_height) {
+            if(p_height < 0) {
+                this.height = 0;
+            } else if(p_height > 100) {
+                this.height = 100;
+            }
             this.height = p_height;
         }
 

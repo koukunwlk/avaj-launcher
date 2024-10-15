@@ -1,7 +1,13 @@
-public class WeatherTower {
+public class WeatherTower extends Tower {
+    public String lastWeather;
+    public WeatherProvider wp = WeatherProvider.getInstance();;
     public String getWeather(Coordinates coordinates) {
-        WeatherProvider wp = WeatherProvider.getInstance();
-        String currentWeather = wp.getCurrentWeather(coordinates);
-        return currentWeather;
+        this.lastWeather = this.wp.getCurrentWeather(coordinates);
+        return this.lastWeather;
     }
+
+    public void changeWeather() {
+        super.conditionsChanged();
+    }
+
 }
