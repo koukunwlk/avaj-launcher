@@ -12,12 +12,16 @@ public class Helicopter extends Aircraft{
         if(condition == "SUN") {
             this.coordinates.setLongitude(longitude + 10);
             this.coordinates.setHeight(height + 2);
+            System.out.println("Let's climb high as we can");
         } else if (condition == "RAIN") {
             this.coordinates.setLongitude(longitude + 5);
+            System.out.println("Take caution with ou rotor");
         } else if (condition == "FOG") {
             this.coordinates.setLongitude(longitude + 1);
+            System.out.println("Let's see this fog from above");
         } else if(condition == "SNOW") {
             this.coordinates.setHeight(height - 12);
+            System.out.println("Winter is coming!");
         }
     }
 }

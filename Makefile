@@ -3,7 +3,7 @@ compile:
 	@javac -sourcepath ./src/ -d ./out/ ./src/AvajLauncher/*.java
 	@echo "Source files compiled"
 run:
-	@java -classpath ./out AvajLauncher
+	@java -classpath ./out AvajLauncher $(filepath)
 
 clean:
 	@rm -rf ./out/*

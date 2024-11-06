@@ -1,7 +1,18 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class AvajLauncher{
 
     public static void main(String args[]) {
-        Coordinates coor = new Coordinates(65, 63, 20);
+        if(args.length != 1) {
+            System.err.println("This program receives only receives the scenario file");
+            return ;
+        }
+            ScenarioReader sr = new ScenarioReader(args[0]);
+            sr.validateFile();
+
+ /*        Coordinates coor = new Coordinates(65, 63, 20);
         Coordinates coor2 = new Coordinates(35, 35, 20);
         WeatherTower wt = new WeatherTower();
         AircraftFactory af =  AircraftFactory.getInstance();
@@ -13,6 +24,6 @@ public class AvajLauncher{
         f2.registerTower(wt);
         wt.conditionsChanged();
         wt.conditionsChanged();
-        wt.conditionsChanged();
+        wt.conditionsChanged(); */
     }
 }

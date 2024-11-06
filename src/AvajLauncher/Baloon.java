@@ -16,8 +16,7 @@ public class Baloon extends Aircraft{
             System.out.println("Let's enjoy the good weather and take some pics.");
         } else if (condition == "RAIN") {
             this.coordinates.setHeight(height - 5);
-            System.out.println("I think that we need a umbrella");
-
+            System.out.println("I think that we need an umbrella");
         } else if (condition == "FOG") {
             System.out.println("We need to go down I can't see in this fog");
             this.coordinates.setHeight(height - 3);

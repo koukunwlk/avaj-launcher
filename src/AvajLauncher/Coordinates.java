@@ -5,9 +5,9 @@ public class Coordinates {
 
         
         public Coordinates(int p_longitude, int p_latitude, int p_height) {
-                this.longitude = p_longitude;
-                this.latitude = p_latitude;
-                this.height = p_height;
+                setHeight(p_height);
+                setLatitude(p_latitude);
+                setLongitude(p_longitude);
             }
         
             // Getters
@@ -48,6 +48,10 @@ public class Coordinates {
             return "longitude: " + this.longitude + " latitude: " + this.latitude + " height: " + this.height;
         }
 
-            
+        public class InvalidCoordinates extends Exception {
+            public InvalidCoordinates(String coordinate) {
+                super("this coordinate " + coordinate + " must be positive 0 to 100");
+            }
+     }
 
 }
