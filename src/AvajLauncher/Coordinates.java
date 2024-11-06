@@ -4,13 +4,13 @@ public class Coordinates {
         private int height;
 
         
-        public Coordinates(int p_longitude, int p_latitude, int p_height) {
+        public Coordinates(int p_longitude, int p_latitude, int p_height) throws InvalidCoordinates {
                 setHeight(p_height);
                 setLatitude(p_latitude);
                 setLongitude(p_longitude);
             }
         
-            // Getters
+        // Getters
 
         public int getLongitude() {
             return this.longitude;
@@ -23,15 +23,20 @@ public class Coordinates {
         public int getHeight() {
             return this.height;
         }
-        
 
         // Setters
 
-        public void setLongitude(int p_longitude) {
+        public void setLongitude(int p_longitude) throws InvalidCoordinates {
+            if(p_longitude < 0) {
+                throw new InvalidCoordinates("longitude");
+            }
             this.longitude = p_longitude;
         }
 
-        public void setLatitude(int p_latitude) {
+        public void setLatitude(int p_latitude) throws InvalidCoordinates  {
+            if(p_latitude < 0) {
+                throw new InvalidCoordinates("latitude");
+            }
             this.latitude =  p_latitude;
         }
 

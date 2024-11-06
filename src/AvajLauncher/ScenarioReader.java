@@ -51,7 +51,7 @@ public class ScenarioReader {
         }
     }
 
-    private void validatePlanes(String line) {
+    private void validatePlanes(String line)  {
         AircraftFactory af = AircraftFactory.getInstance();
         String[] splited = line.split(" ");
         String type = splited[0];
@@ -59,9 +59,15 @@ public class ScenarioReader {
         int longitude = Integer.valueOf(splited[2]);
         int latitude = Integer.valueOf(splited[3]);
         int height = Integer.valueOf(splited[4]);
-        Coordinates coor = new Coordinates(longitude, latitude, height);
-        Flyable newAircraft = af.newAircraft(type, name, coor);
-        airport.add(newAircraft);
+        try {
+            Coordinates coor = new Coordinates(longitude, latitude, height);
+            Flyable newAircraft = af.newAircraft(type, name, coor);
+            airport.add(newAircraft);
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+            return ;
+        }
+
     }
 
 

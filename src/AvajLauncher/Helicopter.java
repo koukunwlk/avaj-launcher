@@ -10,14 +10,20 @@ public class Helicopter extends Aircraft{
         int longitude = this.coordinates.getLongitude();
 
         if(condition == "SUN") {
-            this.coordinates.setLongitude(longitude + 10);
+            try {
+                this.coordinates.setLongitude(longitude + 10);
+            } catch (Exception e) {}
             this.coordinates.setHeight(height + 2);
             System.out.println("Let's climb high as we can");
         } else if (condition == "RAIN") {
-            this.coordinates.setLongitude(longitude + 5);
+            try {
+                this.coordinates.setLongitude(longitude + 5);
+            } catch (Exception e) {}
             System.out.println("Take caution with ou rotor");
         } else if (condition == "FOG") {
-            this.coordinates.setLongitude(longitude + 1);
+            try {
+                this.coordinates.setLongitude(longitude + 1);
+            } catch (Exception e) {}
             System.out.println("Let's see this fog from above");
         } else if(condition == "SNOW") {
             this.coordinates.setHeight(height - 12);

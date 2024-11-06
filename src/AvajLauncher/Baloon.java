@@ -11,7 +11,9 @@ public class Baloon extends Aircraft{
         System.out.printf("%s#%s<%d>(%s): ", this.getClass().getName(), this.name, this.id, condition);
 
         if(condition == "SUN") {
-            this.coordinates.setLongitude(longitude + 2);
+            try {
+                this.coordinates.setLongitude(longitude + 2);
+            } catch (Exception e) {}
             this.coordinates.setHeight(height + 4);
             System.out.println("Let's enjoy the good weather and take some pics.");
         } else if (condition == "RAIN") {
