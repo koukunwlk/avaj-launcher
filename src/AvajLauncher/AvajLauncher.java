@@ -7,6 +7,7 @@ public class AvajLauncher{
         }
             ScenarioReader sr = new ScenarioReader(args[0]);
             sr.validateFile();
+            sr.runScenario();
 
  /*        Coordinates coor = new Coordinates(65, 63, 20);
         Coordinates coor2 = new Coordinates(35, 35, 20);

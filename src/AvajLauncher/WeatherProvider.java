@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class WeatherProvider {
     private static WeatherProvider instance;
-    private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
+    private ArrayList<String> weather = new ArrayList<String>();
 
     private WeatherProvider() {
-        
+        weather.addAll(Arrays.asList("SNOW", "SUN", "RAIN", "FOG"));
     }
 
     public String getCurrentWeather(Coordinates coor) {

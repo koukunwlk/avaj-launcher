@@ -9,14 +9,24 @@ public class ScenarioReader {
     private String fileName;
     private Scanner sc;
     ArrayList<Flyable> airport;
-    private WeatherProvider wp;
     private WeatherTower wt;
+    private  boolean isValidated = false;
 
     public ScenarioReader(String filename) {
         this.airport = new ArrayList<Flyable>();
         this.fileName = filename;
         this.wt = new WeatherTower();
-        this.wp = WeatherProvider.getInstance();
+    }
+
+    public void runScenario() {
+        if(!this.isValidated) {
+            System.out.println("The file must be validated first");
+            return ;
+        }
+
+        for(int i = 0; i < this.numberOfChanges; i++) {
+            this.wt.changeWeather();
+        }
 
     }
 
@@ -29,6 +39,7 @@ public class ScenarioReader {
                 validatePlanes(sc.nextLine());
             }
             this.sc.close();
+            this.isValidated = true;
             
         } catch(Exception error) {
             if(error instanceof FileNotFoundException) {
@@ -62,15 +73,13 @@ public class ScenarioReader {
         try {
             Coordinates coor = new Coordinates(longitude, latitude, height);
             Flyable newAircraft = af.newAircraft(type, name, coor);
-            airport.add(newAircraft);
+            this.wt.register(newAircraft);
         } catch (Exception error) {
             System.out.println(error.getMessage());
             return ;
         }
 
     }
-
-
 
     class InvalidNumberOfChangesException extends Exception {
         public InvalidNumberOfChangesException(String message) {

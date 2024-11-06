@@ -46,7 +46,6 @@ public class Coordinates {
             } else if(p_height > 100) {
                 this.height = 100;
             }
-            this.height = p_height;
         }
 
         public String toString() {
@@ -55,7 +54,7 @@ public class Coordinates {
 
         public class InvalidCoordinates extends Exception {
             public InvalidCoordinates(String coordinate) {
-                super("this coordinate " + coordinate + " must be positive 0 to 100");
+                super("The coordinate " + coordinate + " must be positive 0 to 100");
             }
      }
 

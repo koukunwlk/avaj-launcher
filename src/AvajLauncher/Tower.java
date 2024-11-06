@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Tower {
@@ -16,12 +17,15 @@ public class Tower {
     }
 
     public void unregister(Flyable flyable) {
+        Aircraft aircraft = (Aircraft)flyable;
+        System.out.printf("Tower: %s#%s<%d> unregistered to weather tower\n", aircraft.getClass().getName(), aircraft.getName(), aircraft.getId());
         this.observers.remove(flyable);
     }
 
     protected void conditionsChanged() {
-        for(Flyable observer: observers) {
-           observer.updateConditions();
+        Iterator<Flyable> it = observers.iterator();
+        while(it.hasNext()) {
+            it.next().updateConditions();
         }
     }
 }
